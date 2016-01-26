@@ -1,5 +1,5 @@
 //
-//  Array.swift
+//  ArrayExtension.swift
 //
 //  by hwj4477@gmail.com
 //

@@ -1,5 +1,5 @@
 //
-//  Int.swift
+//  IntExtension.swift
 //
 //  by hwj4477@gmail.com
 //
