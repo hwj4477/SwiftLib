@@ -13,11 +13,11 @@ public extension Array {
     /**
      *  Check element exist
      */
-    func any(block: (element : (Element)) -> (Bool)) -> Bool {
+    func any(_ block: (_ element : (Element)) -> (Bool)) -> Bool {
     
         for item in self {
     
-            if(block(element: item)) {
+            if(block(item)) {
                 return true
             }
         }
@@ -29,11 +29,11 @@ public extension Array {
     /**
      *  Detect element
      */
-    func detect(block: (element : (Element)) -> (Bool)) -> Element? {
+    func detect(_ block: (_ element : (Element)) -> (Bool)) -> Element? {
         
         for item in self {
             
-            if(block(element: item)) {
+            if(block(item)) {
                 return item
             }
         }
@@ -45,13 +45,13 @@ public extension Array {
     /**
      *  Delete element
      */
-    mutating func delete(block: (element : (Element)) -> (Bool)) -> Bool {
+    mutating func delete(_ block: (_ element : (Element)) -> (Bool)) -> Bool {
         
-        for (index, item) in self.enumerate() {
+        for (index, item) in self.enumerated() {
             
-            if(block(element: item)) {
+            if(block(item)) {
                 
-                self.removeAtIndex(index)
+                self.remove(at: index)
                 
                 return true
             }
@@ -64,7 +64,7 @@ public extension Array {
     /**
      *  Array to String
      */
-    func join(delemiter : String) -> String? {
+    func join(_ delemiter : String) -> String? {
      
         if(self.isEmpty) {
             return nil
@@ -82,13 +82,13 @@ public extension Array {
                 
                 let lastElement = self.last!
                 
-                if(itemVal == String(lastElement)) {
+                if(itemVal == String(describing: lastElement)) {
                     
                     result = result + String(itemVal)
                 }
                 else {
                     
-                    result = result + String(item) + delemiter
+                    result = result + String(describing: item) + delemiter
                 }
             }
             else {

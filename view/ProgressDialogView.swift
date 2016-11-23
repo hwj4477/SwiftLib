@@ -28,9 +28,9 @@ class ProgressDialogView: UIView {
     
     init() {
         
-        super.init(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height))
+        super.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height))
         
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clear
         
         initView()
     }
@@ -41,18 +41,18 @@ class ProgressDialogView: UIView {
     
     func initView() {
         
-        bgView = UIView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height))
-        bgView?.backgroundColor = UIColor.blackColor()
+        bgView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height))
+        bgView?.backgroundColor = UIColor.black
         bgView?.alpha = 0.5
         self.addSubview(bgView!)
         
-        indicatorView = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
+        indicatorView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
         indicatorView?.center = self.center
         
         self.addSubview(indicatorView!)
     }
     
-    func showDialog(onView: UIView) {
+    func showDialog(_ onView: UIView) {
         
         dismissDialog()
         

@@ -13,22 +13,22 @@ public extension Int {
     /**
      *  Call function self times.
      */
-    func times(task : (n : Int) -> Void) {
+    func times(_ task : (_ n : Int) -> Void) {
         
         for num in 0 ..< self {
             
-            task(n: num)
+            task(num)
         }
     }
     
     /**
      *  Call function self - to.
      */
-    func upto(to : Int, task : (n : Int) -> Void) {
+    func upto(_ to : Int, task : (_ n : Int) -> Void) {
         
         for num in self ... to {
             
-            task(n: num)
+            task(num)
         }
     }
     

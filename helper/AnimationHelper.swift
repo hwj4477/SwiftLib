@@ -9,7 +9,7 @@ import UIKit
 
 class AnimationHelper {
 
-    static func slideLeftViewTransition(target: UIView, duration: CFTimeInterval = 0.5) {
+    static func slideLeftViewTransition(_ target: UIView, duration: CFTimeInterval = 0.5) {
         
         let animation = CATransition()
         animation.duration = duration
@@ -17,10 +17,10 @@ class AnimationHelper {
         animation.subtype = kCATransitionFromRight
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         
-        target.layer.addAnimation(animation, forKey: "slideViewTransition")
+        target.layer.add(animation, forKey: "slideViewTransition")
     }
     
-    static func slideRightViewTransition(target: UIView, duration: CFTimeInterval = 0.5) {
+    static func slideRightViewTransition(_ target: UIView, duration: CFTimeInterval = 0.5) {
         
         let animation = CATransition()
         animation.duration = duration
@@ -28,6 +28,6 @@ class AnimationHelper {
         animation.subtype = kCATransitionFromLeft
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         
-        target.layer.addAnimation(animation, forKey: "slideViewTransition")
+        target.layer.add(animation, forKey: "slideViewTransition")
     }
 }

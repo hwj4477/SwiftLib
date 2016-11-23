@@ -22,7 +22,7 @@ class CustomNibView: UIView {
         }
         else {
             
-            self.nibName = NSStringFromClass(self.dynamicType).componentsSeparatedByString(".").last!
+            self.nibName = NSStringFromClass(type(of: self)).components(separatedBy: ".").last!
         }
         
         setup()
@@ -37,15 +37,15 @@ class CustomNibView: UIView {
         
         view = loadViewFromNib()
         view.frame = bounds
-        view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
         addSubview(view)
     }
     
     internal func loadViewFromNib() -> UIView {
         
-        let bundle = NSBundle(forClass: self.dynamicType)
+        let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: nibName, bundle: bundle)
-        return nib.instantiateWithOwner(self, options: nil)[0] as! UIView
+        return nib.instantiate(withOwner: self, options: nil)[0] as! UIView
     }
 }

@@ -15,31 +15,31 @@ class DeviceUtil {
      */
     class func name() -> String {
         
-        return UIDevice.currentDevice().name
+        return UIDevice.current.name
     }
     
     class func systemVersion() -> String {
         
-        return UIDevice.currentDevice().systemVersion
+        return UIDevice.current.systemVersion
     }
     
     class func systemName() -> String {
         
-        return UIDevice.currentDevice().systemName
+        return UIDevice.current.systemName
     }
     
     class func appVersion() -> String? {
         
-        return NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleVersion") as? String
+        return Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String
     }
         
     class func appName() -> String? {
         
-        return NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleName") as? String
+        return Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String
     }
     
     class func bundleIdentifier() -> String? {
         
-        return NSBundle.mainBundle().bundleIdentifier
+        return Bundle.main.bundleIdentifier
     }
 }

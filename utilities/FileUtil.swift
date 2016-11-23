@@ -13,14 +13,14 @@ class FileUtil {
     /**
      *  File Path
      */
-    class func getFilePath(pathType : NSSearchPathDirectory) -> String {
+    class func getFilePath(_ pathType : FileManager.SearchPathDirectory) -> String {
         
-        let paths = NSSearchPathForDirectoriesInDomains(pathType, .UserDomainMask, true)[0] as String
+        let paths = NSSearchPathForDirectoriesInDomains(pathType, .userDomainMask, true)[0] as String
         
         return paths
     }
     
-    class func getFilePath(fileName : String, pathType : NSSearchPathDirectory) -> String {
+    class func getFilePath(_ fileName : String, pathType : FileManager.SearchPathDirectory) -> String {
         
         let paths = getFilePath(pathType)
         

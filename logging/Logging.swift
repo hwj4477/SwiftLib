@@ -13,33 +13,33 @@ public struct Logging {
     /**
      *  print log
      */
-    public static func printLog(body : Any! = nil, filePath : String = __FILE__, functionName : String = __FUNCTION__, line : Int = __LINE__) -> Void {
+    public static func printLog(_ body : Any! = nil, filePath : String = #file, functionName : String = #function, line : Int = #line) -> Void {
         
-        let filename = ((filePath as NSString).lastPathComponent as NSString).stringByDeletingPathExtension
+        let filename = ((filePath as NSString).lastPathComponent as NSString).deletingPathExtension
         
-        print("\(self.currentDateString()) [\(filename) - \(functionName):\(line)] \(String(body))")
+        print("\(self.currentDateString()) [\(filename) - \(functionName):\(line)] \(String(describing: body))")
     }
     
     /**
      *  helper
      */
-    private static let dateFormatter: NSDateFormatter = {
-        let formatter = NSDateFormatter()
-        formatter.locale = NSLocale.currentLocale()
+    fileprivate static let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.locale = Locale.current
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS"
         return formatter
     }()
     
-    private static func currentDateString() -> String
+    fileprivate static func currentDateString() -> String
     {
-        return self.dateFormatter.stringFromDate(NSDate())
+        return self.dateFormatter.string(from: Date())
     }
 }
 
 /**
  *  Debug Log
  */
-public func DebugLog(body : Any! = nil, filePath : String = __FILE__, functionName : String = __FUNCTION__, line : Int = __LINE__) -> Void {
+public func DebugLog(_ body : Any! = nil, filePath : String = #file, functionName : String = #function, line : Int = #line) -> Void {
     
     Logging.printLog(body, filePath: filePath, functionName: functionName, line: line)
 }
